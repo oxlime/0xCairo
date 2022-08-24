@@ -1,5 +1,5 @@
 # 0xCairo
-The second race of the year brings you to Cairo
+The second race of the year brings you to Cairo. 
 Start of a new onchain esport
 
 ![alt text](./midjourney_oxcairo.png)
