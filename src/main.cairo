@@ -2,31 +2,17 @@
 from starkware.cairo.common.math import assert_nn
 from starkware.cairo.common.cairo_builtins import HashBuiltin
 
-@storage_var
-func balance() -> (res : felt):
-end
+# ------------------
+# EXTERNAL FUNCTIONS
+# ------------------
 
 @external
-func increase_balance{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}(
-        amount : felt):
-    with_attr error_message("Amount must be positive. Got: {amount}."):
-        assert_nn(amount)
-    end
-
-    let (res) = balance.read()
-    balance.write(res + amount)
-    return ()
-end
-
-@view
-func get_balance{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}() -> (
-        res : felt):
-    let (res) = balance.read()
-    return (res)
-end
-
-@constructor
-func constructor{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}():
-    balance.write(0)
-    return ()
+func play{syscall_ptr : felt*, range_check_ptr}(
+    rand_contract_address : felt,
+    size : felt,
+    turn_count : felt,
+    cars_len : felt,
+    cars : CarInit*,
+) -> (scores_len : felt, scores : felt*):
+    return race.play(rand_contract_address, size, turn_count, cars_len, cars)
 end
