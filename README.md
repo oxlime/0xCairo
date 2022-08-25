@@ -33,7 +33,7 @@ Gameplay will be similiar to 0xMonaco
 
 For glory, for profit, for fun
 
-Astin Martin, Ferrari, Mercedes, etc. all sell consumer products but compete to be the fastest car at F1.
+Aston Martin, Ferrari, Mercedes, etc. all sell consumer products but compete to be the fastest car at F1.
 Opensea was the winners of 0xMonaco but who will be the best Cairo Engineers.
 Prove onchain your team has the best and brightest engineers.
 
