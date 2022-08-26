@@ -8,3 +8,16 @@ libs_path = "lib"
 main = [
     "src/main.cairo",
 ]
+
+["protostar.contracts"]
+race = [
+    "src/core/race/race.cairo",
+]
+
+["protostar.contracts"]
+basic_car = [
+    "src/cars/basic_car/basic_car.cairo",
+]
+
+[profile.devnet.protostar.deploy]
+gateway_url="http://127.0.0.1:5050/"
