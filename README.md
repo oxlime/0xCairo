@@ -15,7 +15,10 @@ The season will have a constructors cup Championship similiar to F1 where
 the teams (hope is to have each Starknet dapp submit a car) will earn points for each
 place in the races leading up to the end of season.
 
-Teams will need to Register for Constructor Cup Championship at the start of the Season.
+Teams registered to the constructors cup can have total of 2 cars earn points for each race.
+
+Car in first place recieves 25 pts, second 18 pts, 15, 12, 10, 8, 6, 4, 2, 1 for positions 3 through 10 
+similiar again to F1 points system.
 
 ## Gameplay
 
@@ -30,7 +33,7 @@ Gameplay will be similiar to 0xMonaco
 
 For glory, for profit, for fun
 
-Astin Martin, Ferrari, Mercedes, etc. all sell consumer products but compete to be the fastest car at F1.
+Aston Martin, Ferrari, Mercedes, etc. all sell consumer products but compete to be the fastest car at F1.
 Opensea was the winners of 0xMonaco but who will be the best Cairo Engineers.
 Prove onchain your team has the best and brightest engineers.
 
