@@ -2,9 +2,7 @@
 
 @contract_interface
 namespace ICar:
-    func take_turn(grid_state_len : felt, grid_state : Cell*, ship_id : felt) -> (
-        new_direction : Vector2
-    ):
+    func take_turn(race_state_len : felt, race_state : felt, car_id : felt): 
     end
 
     # ERC165
