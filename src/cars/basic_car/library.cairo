@@ -11,4 +11,3 @@ namespace BasicCar:
     ) -> ():
         end
     end
-
