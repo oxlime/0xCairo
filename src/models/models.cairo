@@ -9,3 +9,10 @@ struct Player:
     member car_address : felt
     member team : felt
 end
+
+struct Context:
+    member finish_distance : felt
+    member rand_contract : felt
+    member car_count : felt
+    member car_contracts : felt*
+end
