@@ -16,3 +16,12 @@ struct Context:
     member car_count : felt
     member car_contracts : felt*
 end
+
+#
+# Enums
+#
+struct GameState:
+    member WAITING : felt
+    member ACTIVE : felt
+    member DONE : felt
+end
