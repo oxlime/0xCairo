@@ -62,4 +62,19 @@ namespace race:
         return (context=context)
     end
 
+    func add_cars{syscall_ptr : felt*, range_check_ptr, context : Context}(
+        cars_len : felt, cars : CarInit*
+    ):
+        alloc_locals
+
+        if cars_len == 0:
+            return ()
+        end
+
+        add_car_loop(cars_len, cars, 0)
+        local context : Context = context
+
+        return ()
+    end
+
 end
