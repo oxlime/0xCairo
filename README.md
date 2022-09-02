@@ -47,5 +47,5 @@ https://twitter.com/_0xlime/status/1562510784835776512
 
 #### Inspiration
 
-- 0xMonaco by Paradigm
+- [0xMonaco] (https://0xmonaco.ctf.paradigm.xyz/) by Paradigm
 - tournament structure inspired by onlydust starkonquest 
