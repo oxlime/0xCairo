@@ -1,5 +1,12 @@
 %lang starknet
 
+from starkware.starknet.common.syscalls import get_contract_address
+from starkware.cairo.common.alloc import alloc
+from starkware.cairo.common.math_cmp import is_nn_le
+
+from src.models.models import CarInit, Context
+#from src.libraries.math_utils import math_utils
+
 # ------------------
 # EVENTS
 # ------------------
@@ -10,6 +17,10 @@ end
 
 @event
 func new_turn(race_contract_address : felt, turn_number : felt):
+end
+
+@event
+func shelled(race_contract_address : felt, smoked : felt, smoker : felt, amount : felt, cost : felt):
 end
 
 @event
@@ -62,6 +73,25 @@ namespace race:
         return (context=context)
     end
 
+    func create_pos_array(pos_len : felt) -> (pos : felt*):
+        alloc_locals
+
+        let (new_array) = alloc()
+        local pos : felt* = new_array
+        init_pos_loop(pos_len, pos)
+
+        return (pos=pos)
+    end
+
+    func init_pos_loop(pos_len : felt, pos : felt*):
+        if pos_len == 0:
+            return ()
+        end
+
+        assert [pos] = 0
+        return init_pos_loop(pos_len - 1, pos + 1)
+    end
+
     func add_cars{syscall_ptr : felt*, range_check_ptr, context : Context}(
         cars_len : felt, cars : CarInit*
     ):
@@ -77,4 +107,65 @@ namespace race:
         return ()
     end
 
+    func add_car_loop{syscall_ptr : felt*, range_check_ptr, context : Context}(
+        cars_len : felt, cars : CarInit*, car_index : felt
+    ):
+        if car_index == cars_len:
+            return ()
+        end
+
+        let car : CarInit = cars[car_index]
+        add_car(car.position, car_index + 1)
+        assert context.car_contracts[car_index] = car.address
+
+        return add_car_loop(cars_len, cars, car_index + 1)
+    end
+
+    func add_car{syscall_ptr : felt*, range_check_ptr}(
+        car_id : felt
+    ):
+        alloc_locals
+
+        # Emit events
+        let (race_contract_address) = get_contract_address()
+        car_added.emit(race_contract_address, car_id)
+
+        return ()
+    end
+
+    func one_turn{
+        syscall_ptr : felt*,
+        range_check_ptr,
+        context : Context,
+        current_turn,
+        pos : felt*,
+    }():
+        alloc_locals
+
+        local syscall_ptr : felt* = syscall_ptr
+        pos.take_turn(context.car_contracts)
+
+        return ()
+    end
+
+    func all_turns_loop{
+        syscall_ptr : felt*,
+        range_check_ptr,
+        context : Context,
+        distance : felt,
+        current_turn : felt,
+        pos : felt*,
+    }():
+        if current_turn == context.max_turn_count:
+            return ()  # end of the race 
+        end
+        let (race_contract_address) = get_contract_address()
+        new_turn.emit(race_contract_address, current_turn + 1)
+
+        one_turn()
+
+        let current_turn = current_turn + 1
+
+        return all_turns_loop()
+    end
 end
