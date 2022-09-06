@@ -1,27 +1,27 @@
 %lang starknet
 
-struct CarInit:
-    member address : felt
-end
+struct CarInit {
+    address: felt,
+}
 
-struct Player:
-    member player_address : felt
-    member car_address : felt
-    member team : felt
-end
+struct Player {
+    player_address: felt,
+    car_address: felt,
+    team: felt,
+}
 
-struct Context:
-    member finish_distance : felt
-    member rand_contract : felt
-    member car_count : felt
-    member car_contracts : felt*
-end
+struct Context {
+    finish_distance: felt,
+    rand_contract: felt,
+    car_count: felt,
+    car_contracts: felt*,
+}
 
-#
-# Enums
-#
-struct GameState:
-    member WAITING : felt
-    member ACTIVE : felt
-    member DONE : felt
-end
+//
+// Enums
+//
+struct GameState {
+    WAITING: felt,
+    ACTIVE: felt,
+    DONE: felt,
+}
