@@ -39,6 +39,8 @@ Prove onchain your team has the best and brightest engineers.
 
 https://twitter.com/_0xlime/status/1562510784835776512
 
+Developers new cairo should find this a fun way to test out the language.
+
 ### Monetization
 
 - Have teams submit payment with car
