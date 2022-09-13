@@ -13,5 +13,13 @@ basic_car = [
     "src/cars/basic_car/basic_car.cairo",
 ]
 
+grand_prix = [
+    "src/grand_prix/grand_prix.cairo",
+]
+
+season = [
+    "src/season/season.cairo",
+]
+
 [profile.devnet.protostar.deploy]
 gateway_url="http://127.0.0.1:5050/"
