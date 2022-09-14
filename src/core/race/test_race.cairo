@@ -7,9 +7,10 @@ from starkware.cairo.common.alloc import alloc
 from starkware.cairo.common.bool import TRUE, FALSE
 
 const RAND_CONTRACT = 11111;
+const MAX_TURN_COUNT = 1000;
 
 func create_context_with_no_car(car_count: felt) -> (context: Context) {
-    return battle.create_context(RAND_CONTRACT, MAX_TURN_COUNT, car_count);
+    return race.create_context(RAND_CONTRACT, MAX_TURN_COUNT, car_count);
 }
 
 @external

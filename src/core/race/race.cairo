@@ -16,5 +16,5 @@ func play_game{syscall_ptr: felt*, range_check_ptr}(
     cars_len: felt,
     cars: CarInit*,
 ) -> (scores_len: felt, scores: felt*) {
-    return battle.play_game(rand_contract_address, size, turn_count, cars_len, cars);
+    return race.play_game(rand_contract_address, size, turn_count, cars_len, cars);
 }
