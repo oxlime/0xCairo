@@ -112,7 +112,7 @@ namespace race {
         }
 
         let car: CarInit = cars[car_index];
-        add_car(car.position, car_index + 1);
+        add_car(car_index + 1);
         assert context.car_contracts[car_index] = car.address;
 
         return add_car_loop(cars_len, cars, car_index + 1);
