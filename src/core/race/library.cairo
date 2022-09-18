@@ -121,7 +121,6 @@ namespace race {
     func add_car{syscall_ptr: felt*, range_check_ptr}(car_id: felt) {
         alloc_locals;
 
-        // Emit events
         let (race_contract_address) = get_contract_address();
         car_added.emit(race_contract_address, car_id);
 

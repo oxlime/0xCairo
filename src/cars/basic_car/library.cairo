@@ -9,4 +9,12 @@ namespace BasicCar {
 
     func take_turn{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}() -> () {
     }
+
+    // ---------
+    // INTERNALS
+    // ---------
+
+    func _take_turn{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}() -> () {
+        
+    }
 }
